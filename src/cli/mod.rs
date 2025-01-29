@@ -1,4 +1,10 @@
+use std::path::PathBuf;
+
+use anyhow::Context;
 use clap::{Parser, Subcommand};
+use duct::cmd;
+
+type Error = anyhow::Error;
 
 #[derive(Debug, Parser)]
 pub struct Cli {
@@ -47,4 +53,15 @@ pub struct TestArgs {
 pub struct CleanArgs {
     #[arg(help = "The artifact to clean (default: all)", default_value = "all")]
     pub artifact: String,
+}
+
+fn get_repo_root() -> Result<PathBuf, Error> {
+    cmd!("git", "rev-parse", "--show-toplevel")
+        .read()
+        .map(PathBuf::from)
+        .context("couldn't find repo root")
+}
+
+fn get_cli_directory() -> Result<PathBuf, Error> {
+    get_repo_root().map(|p| p.join("cli"))
 }
