@@ -1,0 +1,16 @@
+2025-01-29T20:11:44.212301Z DEBUG watchdog{socket="/Users/zmitchell/.cache/flox/run/flox.2f81de55.sock" log_dir="/Users/zmitchell/src/ff/main/.flox/log"}: flox_watchdog: starting
+2025-01-29T20:11:44.212522Z DEBUG watchdog{socket="/Users/zmitchell/.cache/flox/run/flox.2f81de55.sock" log_dir="/Users/zmitchell/src/ff/main/.flox/log"}: flox_watchdog: checked socket path="/Users/zmitchell/.cache/flox/run/flox.2f81de55.sock" exists=false
+2025-01-29T20:11:44.212530Z  INFO watchdog{socket="/Users/zmitchell/.cache/flox/run/flox.2f81de55.sock" log_dir="/Users/zmitchell/src/ff/main/.flox/log"}: flox_watchdog: watchdog is on duty this_pid=71170 target_activation_id="711c7acc"
+2025-01-29T20:11:44.212576Z DEBUG flox_watchdog::logger: still watching, woof woof
+2025-01-29T20:11:44.212581Z DEBUG watchdog{socket="/Users/zmitchell/.cache/flox/run/flox.2f81de55.sock" log_dir="/Users/zmitchell/src/ff/main/.flox/log"}: flox_watchdog: waiting for termination
+2025-01-29T20:13:56.957224Z DEBUG watchdog{socket="/Users/zmitchell/.cache/flox/run/flox.2f81de55.sock" log_dir="/Users/zmitchell/src/ff/main/.flox/log"}: flox_core::proc_status: no output from /bin/ps, treating as not running pid=71153
+2025-01-29T20:13:56.959606Z DEBUG watchdog{socket="/Users/zmitchell/.cache/flox/run/flox.2f81de55.sock" log_dir="/Users/zmitchell/src/ff/main/.flox/log"}: flox_core::proc_status: no output from /bin/ps, treating as not running pid=71153
+2025-01-29T20:13:56.959878Z  INFO watchdog{socket="/Users/zmitchell/.cache/flox/run/flox.2f81de55.sock" log_dir="/Users/zmitchell/src/ff/main/.flox/log"}: flox_watchdog: running cleanup after all PIDs terminated
+2025-01-29T20:13:56.959914Z DEBUG watchdog{socket="/Users/zmitchell/.cache/flox/run/flox.2f81de55.sock" log_dir="/Users/zmitchell/src/ff/main/.flox/log"}: flox_watchdog: running cleanup
+2025-01-29T20:13:56.959928Z DEBUG watchdog{socket="/Users/zmitchell/.cache/flox/run/flox.2f81de55.sock" log_dir="/Users/zmitchell/src/ff/main/.flox/log"}: flox_watchdog: did not shut down process-compose reason="no socket"
+2025-01-29T20:13:56.960434Z DEBUG watchdog{socket="/Users/zmitchell/.cache/flox/run/flox.2f81de55.sock" log_dir="/Users/zmitchell/src/ff/main/.flox/log"}: flox_watchdog: finished cleanup
+2025-01-29T20:14:29.649194Z DEBUG watchdog{socket="/Users/zmitchell/.cache/flox/run/flox.2f81de55.sock" log_dir="/Users/zmitchell/src/ff/main/.flox/log"}: flox_watchdog: starting
+2025-01-29T20:14:29.649237Z DEBUG watchdog{socket="/Users/zmitchell/.cache/flox/run/flox.2f81de55.sock" log_dir="/Users/zmitchell/src/ff/main/.flox/log"}: flox_watchdog: checked socket path="/Users/zmitchell/.cache/flox/run/flox.2f81de55.sock" exists=false
+2025-01-29T20:14:29.649244Z  INFO watchdog{socket="/Users/zmitchell/.cache/flox/run/flox.2f81de55.sock" log_dir="/Users/zmitchell/src/ff/main/.flox/log"}: flox_watchdog: watchdog is on duty this_pid=80428 target_activation_id="711c7acc"
+2025-01-29T20:14:29.649277Z DEBUG flox_watchdog::logger: still watching, woof woof
+2025-01-29T20:14:29.649283Z DEBUG watchdog{socket="/Users/zmitchell/.cache/flox/run/flox.2f81de55.sock" log_dir="/Users/zmitchell/src/ff/main/.flox/log"}: flox_watchdog: waiting for termination

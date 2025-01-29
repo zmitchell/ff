@@ -1,0 +1,10 @@
+[package]
+name = "ff"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+anyhow = "1.0.95"
+clap = {version = "4.5.27", features = ["derive"]}
+clap_derive = "4.5.24"
+duct = "0.13.7"
