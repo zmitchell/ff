@@ -14,3 +14,4 @@
 2025-01-29T20:14:29.649244Z  INFO watchdog{socket="/Users/zmitchell/.cache/flox/run/flox.2f81de55.sock" log_dir="/Users/zmitchell/src/ff/main/.flox/log"}: flox_watchdog: watchdog is on duty this_pid=80428 target_activation_id="711c7acc"
 2025-01-29T20:14:29.649277Z DEBUG flox_watchdog::logger: still watching, woof woof
 2025-01-29T20:14:29.649283Z DEBUG watchdog{socket="/Users/zmitchell/.cache/flox/run/flox.2f81de55.sock" log_dir="/Users/zmitchell/src/ff/main/.flox/log"}: flox_watchdog: waiting for termination
+2025-01-29T21:14:29.598172Z DEBUG flox_watchdog::logger: still watching, woof woof
