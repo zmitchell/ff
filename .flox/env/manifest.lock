@@ -51,10 +51,9 @@
         "pkg-group": "rust-toolchain"
       }
     },
-    "vars": {
-      "FOO": "bar"
+    "hook": {
+      "on-activate": "  export PATH=\"$PWD/target/debug:$PATH\"\n"
     },
-    "hook": {},
     "profile": {},
     "options": {
       "systems": [

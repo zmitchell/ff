@@ -1,10 +1,9 @@
-use std::path::PathBuf;
-
-use anyhow::Context;
+use anyhow::Result;
 use clap::{Parser, Subcommand};
-use duct::cmd;
 
-type Error = anyhow::Error;
+mod build;
+mod clean;
+mod test;
 
 #[derive(Debug, Parser)]
 pub struct Cli {
@@ -35,10 +34,6 @@ pub struct BuildArgs {
 
 #[derive(Debug, Clone, clap::Args)]
 pub struct TestArgs {
-    #[arg(short, long, help = "Run unit tests", value_name = "REGEX")]
-    pub unit: Option<String>,
-    #[arg(short, long, help = "Run integration tests", value_name = "BATS_ARGS")]
-    pub int: Option<String>,
     #[arg(short, long, help = "Run integration tests against a Nix-built binary")]
     pub nix: bool,
     #[arg(
@@ -46,7 +41,25 @@ pub struct TestArgs {
         long,
         help = "Build the specified artifact before running tests"
     )]
-    pub build: Option<String>,
+    pub build: bool,
+    #[arg(
+        short,
+        long,
+        help = "Run unit tests",
+        value_name = "REGEX",
+        num_args = 0..=1,
+        default_missing_value = "all"
+    )]
+    pub unit: Option<String>,
+    #[arg(
+        short,
+        long,
+        help = "Run integration tests",
+        value_name = "BATS_ARGS",
+        num_args = 0..,
+        default_missing_value = "all"
+    )]
+    pub int: Option<Vec<String>>,
 }
 
 #[derive(Debug, Clone, clap::Args)]
@@ -55,13 +68,10 @@ pub struct CleanArgs {
     pub artifact: String,
 }
 
-fn get_repo_root() -> Result<PathBuf, Error> {
-    cmd!("git", "rev-parse", "--show-toplevel")
-        .read()
-        .map(PathBuf::from)
-        .context("couldn't find repo root")
-}
-
-fn get_cli_directory() -> Result<PathBuf, Error> {
-    get_repo_root().map(|p| p.join("cli"))
+pub fn handle_cmd(cmd: &Command) -> Result<()> {
+    match cmd {
+        Command::Build(build_args) => build::build(build_args),
+        Command::Test(test_args) => test::test(test_args),
+        Command::Clean(clean_args) => clean::clean(&clean_args.artifact),
+    }
 }

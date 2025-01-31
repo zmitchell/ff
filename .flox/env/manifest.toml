@@ -24,9 +24,11 @@ libiconv = { pkg-path = "libiconv", systems = ["aarch64-darwin", "x86_64-darwin"
 cargo-nextest.pkg-path = "cargo-nextest"
 
 [vars]
-FOO = "bar"
 
 [hook]
+on-activate = '''
+  export PATH="$PWD/target/debug:$PATH"
+'''
 
 [profile]
 

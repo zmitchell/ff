@@ -1,5 +1,11 @@
-mod cli;
+use clap::Parser;
+use cli::{handle_cmd, Cli};
 
-fn main() {
-    println!("Hello, world!");
+mod cli;
+mod components;
+mod util;
+
+fn main() -> Result<(), anyhow::Error> {
+    let args = Cli::parse();
+    handle_cmd(&args.cmd)
 }
