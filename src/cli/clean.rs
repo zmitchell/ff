@@ -12,7 +12,7 @@ pub fn clean(artifact: &str) -> Result<()> {
     match artifact {
         "all" => clean_all(),
         "scripts" => ActivationScripts.clean(),
-        "activations" => FloxActivations.clean(),
+        "activations" | "act" => FloxActivations.clean(),
         "flox" | "cli" => Flox.clean(),
         "plugins" | "nix-plugins" => NixPlugin.clean(),
         "buildenv" => Buildenv.clean(),
