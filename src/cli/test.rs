@@ -38,7 +38,9 @@ fn run_unit_tests(filter: Option<&String>) -> Result<()> {
         cargo_workspace_manifest()?.to_string_lossy().into_owned(),
     ];
     if let Some(filter) = filter {
-        args.push(filter.clone());
+        if filter != "all" {
+            args.push(filter.clone());
+        }
     }
     duct::cmd("cargo", args).run()?;
     Ok(())
