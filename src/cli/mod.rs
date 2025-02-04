@@ -13,13 +13,13 @@ pub struct Cli {
 
 #[derive(Debug, Clone, Subcommand)]
 pub enum Command {
-    #[command(about = "Build an artifact")]
+    #[command(about = "Build artifacts")]
     #[command(visible_alias = "b")]
     Build(BuildArgs),
     #[command(about = "Run (parts of) the test suite")]
     #[command(visible_alias = "t")]
     Test(TestArgs),
-    #[command(about = "Remove all build artifacts")]
+    #[command(about = "Remove build artifacts")]
     #[command(visible_alias = "c")]
     Clean(CleanArgs),
 }

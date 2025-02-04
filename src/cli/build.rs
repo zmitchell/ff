@@ -10,7 +10,7 @@ pub fn build(args: &BuildArgs) -> Result<()> {
     match args.artifact.as_str() {
         "all" => build_all(args.nix),
         "scripts" => ActivationScripts.build(args.nix),
-        "activations" => FloxActivations.build(args.nix),
+        "activations" | "act" => FloxActivations.build(args.nix),
         "flox" | "cli" => Flox.build(args.nix),
         "plugins" | "nix-plugins" => NixPlugin.build(args.nix),
         "buildenv" => Buildenv.build(args.nix),
