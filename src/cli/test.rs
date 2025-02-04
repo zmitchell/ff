@@ -1,4 +1,4 @@
-use crate::util::{cargo_workspace_manifest, repo_root};
+use crate::util::{cargo_workspace_manifest, flox_version, repo_root};
 
 use super::{build::build_all, TestArgs};
 use anyhow::{Context, Result};
@@ -45,7 +45,7 @@ fn run_unit_tests(filter: Option<&String>) -> Result<()> {
             args.push(filter.clone());
         }
     }
-    let cmd = duct::cmd("cargo", args);
+    let cmd = duct::cmd("cargo", args).env("FLOX_VERSION", flox_version()?);
     debug!(?cmd, "test command");
     cmd.run()?;
     debug!("succeeded");
@@ -77,7 +77,7 @@ fn run_integration_tests(bats_args: Option<&Vec<String>>) -> Result<()> {
             test_args.extend(bats_args.clone());
         }
     }
-    let cmd = duct::cmd("flox-cli-tests", test_args);
+    let cmd = duct::cmd("flox-cli-tests", test_args).env("FLOX_VERSION", flox_version()?);
     debug!(?cmd, "test command");
     cmd.run()?;
     debug!("succeeded");
@@ -92,7 +92,7 @@ fn run_integration_tests_with_nix(bats_args: Option<&Vec<String>>) -> Result<()>
             args.extend(bats_args.clone());
         }
     }
-    let cmd = duct::cmd("nix", args);
+    let cmd = duct::cmd("nix", args).env("FLOX_VERSION", flox_version()?);
     debug!(?cmd, "test command");
     cmd.run()?;
     debug!("succeeded");
