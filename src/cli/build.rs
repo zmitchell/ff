@@ -21,10 +21,10 @@ pub fn build(args: &BuildArgs) -> Result<()> {
 }
 
 pub fn build_all(with_nix: bool) -> Result<()> {
-    ActivationScripts.build(with_nix)?;
-    Watchdog.build(with_nix)?;
     NixPlugin.build(with_nix)?;
     PackageBuilder.build(with_nix)?;
+    ActivationScripts.build(with_nix)?;
+    Watchdog.build(with_nix)?;
     Buildenv.build(with_nix)?;
     Flox.build(with_nix)?;
     Ok(())
