@@ -1,5 +1,6 @@
 use anyhow::Result;
 use clap::{Parser, Subcommand};
+use tracing::debug;
 
 mod build;
 mod clean;
@@ -70,8 +71,17 @@ pub struct CleanArgs {
 
 pub fn handle_cmd(cmd: &Command) -> Result<()> {
     match cmd {
-        Command::Build(build_args) => build::build(build_args),
-        Command::Test(test_args) => test::test(test_args),
-        Command::Clean(clean_args) => clean::clean(&clean_args.artifact),
+        Command::Build(build_args) => {
+            debug!("running build command");
+            build::build(build_args)
+        }
+        Command::Test(test_args) => {
+            debug!("running test command");
+            test::test(test_args)
+        }
+        Command::Clean(clean_args) => {
+            debug!("running clean command");
+            clean::clean(&clean_args.artifact)
+        }
     }
 }

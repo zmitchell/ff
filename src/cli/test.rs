@@ -2,9 +2,11 @@ use crate::util::{cargo_workspace_manifest, repo_root};
 
 use super::{build::build_all, TestArgs};
 use anyhow::{Context, Result};
+use tracing::debug;
 
 pub fn test(args: &TestArgs) -> Result<()> {
     if args.build {
+        debug!("doing pre-test build");
         build_all(args.nix)?;
     }
     if args.unit.is_none() && args.int.is_none() && args.nix {
@@ -30,6 +32,7 @@ pub fn test(args: &TestArgs) -> Result<()> {
 }
 
 fn run_unit_tests(filter: Option<&String>) -> Result<()> {
+    debug!("running unit tests");
     let mut args = vec![
         "nextest".to_string(),
         "run".to_string(),
@@ -42,11 +45,15 @@ fn run_unit_tests(filter: Option<&String>) -> Result<()> {
             args.push(filter.clone());
         }
     }
-    duct::cmd("cargo", args).run()?;
+    let cmd = duct::cmd("cargo", args);
+    debug!(?cmd, "test command");
+    cmd.run()?;
+    debug!("succeeded");
     Ok(())
 }
 
 fn run_integration_tests(bats_args: Option<&Vec<String>>) -> Result<()> {
+    debug!(with_nix = false, "running integration tests");
     let nix_plugins = std::env::var("NIX_PLUGINS").context("NIX_PLUGINS was unset")?;
     let flox_bin = std::env::var("FLOX_BIN").context("FLOX_BIN was unset")?;
     let watchdog_bin = std::env::var("WATCHDOG_BIN").context("WATCHDOG_BIN was unset")?;
@@ -70,17 +77,24 @@ fn run_integration_tests(bats_args: Option<&Vec<String>>) -> Result<()> {
             test_args.extend(bats_args.clone());
         }
     }
-    duct::cmd("flox-cli-tests", test_args).run()?;
+    let cmd = duct::cmd("flox-cli-tests", test_args);
+    debug!(?cmd, "test command");
+    cmd.run()?;
+    debug!("succeeded");
     Ok(())
 }
 
 fn run_integration_tests_with_nix(bats_args: Option<&Vec<String>>) -> Result<()> {
+    debug!(with_nix = true, "running integration tests");
     let mut args = vec!["run".to_string(), ".#flox-cli-tests".to_string()];
     if let Some(bats_args) = bats_args {
         if bats_args[0] != "all" {
             args.extend(bats_args.clone());
         }
     }
-    duct::cmd("nix", args).run()?;
+    let cmd = duct::cmd("nix", args);
+    debug!(?cmd, "test command");
+    cmd.run()?;
+    debug!("succeeded");
     Ok(())
 }

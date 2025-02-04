@@ -3,6 +3,7 @@ use crate::components::{
     Watchdog,
 };
 use anyhow::Result;
+use tracing::debug;
 
 use super::BuildArgs;
 
@@ -21,6 +22,7 @@ pub fn build(args: &BuildArgs) -> Result<()> {
 }
 
 pub fn build_all(with_nix: bool) -> Result<()> {
+    debug!("building all components");
     NixPlugin.build(with_nix)?;
     PackageBuilder.build(with_nix)?;
     ActivationScripts.build(with_nix)?;
