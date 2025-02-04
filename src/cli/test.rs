@@ -69,8 +69,8 @@ fn run_integration_tests(bats_args: Option<&Vec<String>>) -> Result<()> {
             test_args.push("--".to_string());
             test_args.extend(bats_args.clone());
         }
-        duct::cmd("flox-cli-tests", test_args).run()?;
     }
+    duct::cmd("flox-cli-tests", test_args).run()?;
     Ok(())
 }
 
