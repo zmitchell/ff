@@ -18,6 +18,7 @@ pub fn clean(artifact: &str) -> Result<()> {
         "buildenv" => Buildenv.clean(),
         "package-builder" => PackageBuilder.clean(),
         "watchdog" => Watchdog.clean(),
+        "nix" => clean_nix_artifacts(),
         _ => anyhow::bail!("unknown artifact: {artifact}"),
     }
 }
@@ -32,4 +33,8 @@ fn clean_all() -> Result<()> {
     )
     .run()?;
     Ok(())
+}
+
+fn clean_nix_artifacts() -> Result<()> {
+    std::fs::remove_dir_all(build_dir()?).context("failed to remove build dir")
 }
