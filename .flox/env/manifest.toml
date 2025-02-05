@@ -31,6 +31,9 @@ on-activate = '''
 '''
 
 [profile]
+fish = '''
+ abbr install-bin "cargo b -r && cp target/release/ff ~/bin/ff"
+'''
 
 [options]
 systems = ["aarch64-darwin", "x86_64-darwin", "aarch64-linux", "x86_64-linux"]
