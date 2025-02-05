@@ -10,16 +10,16 @@ pub fn test(args: &TestArgs) -> Result<()> {
         build_all(args.nix)?;
     }
     if args.unit.is_none() && args.int.is_none() && args.nix {
-        run_unit_tests(args.unit.as_ref(), args.show_stderr)?;
+        run_unit_tests(args.unit.as_ref())?;
         run_integration_tests_with_nix(args.int.as_ref())?;
         return Ok(());
     } else if args.unit.is_none() && args.int.is_none() {
-        run_unit_tests(args.unit.as_ref(), args.show_stderr)?;
+        run_unit_tests(args.unit.as_ref())?;
         run_integration_tests(args.int.as_ref())?;
         return Ok(());
     }
     if args.unit.is_some() {
-        run_unit_tests(args.unit.as_ref(), args.show_stderr)?;
+        run_unit_tests(args.unit.as_ref())?;
     }
     if args.int.is_some() {
         if args.nix {
@@ -31,7 +31,7 @@ pub fn test(args: &TestArgs) -> Result<()> {
     Ok(())
 }
 
-fn run_unit_tests(filter: Option<&String>, show_stderr: bool) -> Result<()> {
+fn run_unit_tests(filter: Option<&String>) -> Result<()> {
     debug!("running unit tests");
     let mut args = vec![
         "nextest".to_string(),
@@ -44,10 +44,6 @@ fn run_unit_tests(filter: Option<&String>, show_stderr: bool) -> Result<()> {
         if filter != "all" {
             args.push(filter.clone());
         }
-    }
-    if show_stderr {
-        args.push("--".to_string());
-        args.push("--nocapture".to_string());
     }
     let cmd = duct::cmd("cargo", args).env("FLOX_VERSION", flox_version()?);
     debug!(?cmd, "test command");

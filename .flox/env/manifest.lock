@@ -54,9 +54,7 @@
     "hook": {
       "on-activate": "  export PATH=\"$PWD/target/debug:$PATH\"\n"
     },
-    "profile": {
-      "fish": "  abbr install-bin \"cargo b -r && cp target/release/ff ~/bin/ff\"\n"
-    },
+    "profile": {},
     "options": {
       "systems": [
         "aarch64-darwin",
