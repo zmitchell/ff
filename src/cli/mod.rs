@@ -43,6 +43,8 @@ pub struct TestArgs {
         help = "Build the specified artifact before running tests"
     )]
     pub build: bool,
+    #[arg(short = 'e', long, help = "Pass through stderr from unit tests")]
+    pub show_stderr: bool,
     #[arg(
         short,
         long,
