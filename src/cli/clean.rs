@@ -3,10 +3,11 @@ use crate::{
         ActivationScripts, Buildenv, Component, Flox, FloxActivations, NixPlugin, PackageBuilder,
         Watchdog,
     },
-    util::{build_dir, cargo_workspace_manifest},
+    util::{build_dir, cargo_workspace_manifest, path_to_string},
 };
 use anyhow::{Context, Result};
 use duct::cmd;
+use tracing::debug;
 
 pub fn clean(artifact: &str) -> Result<()> {
     match artifact {
@@ -24,17 +25,29 @@ pub fn clean(artifact: &str) -> Result<()> {
 }
 
 fn clean_all() -> Result<()> {
-    std::fs::remove_dir_all(build_dir()?).context("failed to remove build dir")?;
-    cmd!(
+    debug!("cleaning all artifacts");
+    let build_dir_path = build_dir()?;
+    debug!(path = path_to_string(&build_dir_path), "removing build dir");
+    std::fs::remove_dir_all(build_dir_path).context("failed to remove build dir")?;
+    debug!("succeeded");
+    debug!("cleaning all cargo artifacts");
+    let cmd = cmd!(
         "cargo",
         "clean",
         "--manifest-path",
         cargo_workspace_manifest()?
-    )
-    .run()?;
+    );
+    debug!(?cmd, "clean command");
+    cmd.run()?;
+    debug!("succeeded");
     Ok(())
 }
 
 fn clean_nix_artifacts() -> Result<()> {
-    std::fs::remove_dir_all(build_dir()?).context("failed to remove build dir")
+    debug!("cleaning nix artifacts");
+    let build_dir_path = build_dir()?;
+    debug!(path = path_to_string(&build_dir_path), "removing build dir");
+    std::fs::remove_dir_all(build_dir_path).context("failed to remove build dir")?;
+    debug!("succeeded");
+    Ok(())
 }
