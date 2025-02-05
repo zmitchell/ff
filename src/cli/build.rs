@@ -17,6 +17,7 @@ pub fn build(args: &BuildArgs) -> Result<()> {
         "buildenv" => Buildenv.build(args.nix),
         "package-builder" => PackageBuilder.build(args.nix),
         "watchdog" => Watchdog.build(args.nix),
+        "nix" => build_nix_components(),
         _ => anyhow::bail!("unknown artifact: {}", args.artifact),
     }
 }
@@ -29,5 +30,14 @@ pub fn build_all(with_nix: bool) -> Result<()> {
     Watchdog.build(with_nix)?;
     Buildenv.build(with_nix)?;
     Flox.build(with_nix)?;
+    Ok(())
+}
+
+fn build_nix_components() -> Result<()> {
+    debug!("building all components");
+    NixPlugin.build(true)?;
+    PackageBuilder.build(true)?;
+    ActivationScripts.build(true)?;
+    Buildenv.build(true)?;
     Ok(())
 }
