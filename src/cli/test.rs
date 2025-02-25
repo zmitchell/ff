@@ -73,7 +73,6 @@ fn run_integration_tests(bats_args: Option<&Vec<String>>) -> Result<()> {
     ];
     if let Some(bats_args) = bats_args {
         if bats_args[0] != "all" {
-            test_args.push("--".to_string());
             test_args.extend(bats_args.clone());
         }
     }
