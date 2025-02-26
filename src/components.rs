@@ -207,7 +207,7 @@ impl Component for ActivationScripts {
             "--option",
             "pure-eval",
             "false",
-            ".#floxDevelopmentPackages.flox-activation-scripts^*",
+            ".#floxDevelopmentPackages.flox-interpreter^*",
             "-o",
             std::env::var("FLOX_INTERPRETER").context("FLOX_INTERPRETER not set")?
         );
