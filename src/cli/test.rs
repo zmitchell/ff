@@ -1,7 +1,7 @@
-use crate::util::{cargo_workspace_manifest, flox_version, repo_root};
+use crate::util::{cargo_workspace_manifest, flox_version};
 
 use super::{build::build_all, TestArgs};
-use anyhow::{Context, Result};
+use anyhow::Result;
 use tracing::debug;
 
 pub fn test(args: &TestArgs) -> Result<()> {
@@ -54,23 +54,7 @@ fn run_unit_tests(filter: Option<&String>) -> Result<()> {
 
 fn run_integration_tests(bats_args: Option<&Vec<String>>) -> Result<()> {
     debug!(with_nix = false, "running integration tests");
-    let nix_plugins = std::env::var("NIX_PLUGINS").context("NIX_PLUGINS was unset")?;
-    let flox_bin = std::env::var("FLOX_BIN").context("FLOX_BIN was unset")?;
-    let watchdog_bin = std::env::var("WATCHDOG_BIN").context("WATCHDOG_BIN was unset")?;
-    let input_data = repo_root()?.join("test_data/input_data");
-    let generated_data = std::env::var("GENERATED_DATA").context("GENERATED_DATA was unset")?;
-    let mut test_args = vec![
-        "--nix-plugins".to_string(),
-        nix_plugins,
-        "--flox".to_string(),
-        flox_bin,
-        "--watchdog".to_string(),
-        watchdog_bin,
-        "--input-data".to_string(),
-        input_data.to_string_lossy().into_owned(),
-        "--generated-data".to_string(),
-        generated_data,
-    ];
+    let mut test_args = vec![];
     if let Some(bats_args) = bats_args {
         if bats_args[0] != "all" {
             test_args.extend(bats_args.clone());
