@@ -4,11 +4,11 @@
     "version": 1,
     "install": {
       "cargo": {
-        "pkg-path": "cargo",
-        "pkg-group": "rust-toolchain"
+        "pkg-path": "cargo"
       },
       "cargo-nextest": {
-        "pkg-path": "cargo-nextest"
+        "pkg-path": "cargo-nextest",
+        "pkg-group": "extra"
       },
       "clang": {
         "pkg-path": "clang",
@@ -17,8 +17,7 @@
         ]
       },
       "clippy": {
-        "pkg-path": "clippy",
-        "pkg-group": "rust-toolchain"
+        "pkg-path": "clippy"
       },
       "gcc": {
         "pkg-path": "gcc",
@@ -36,19 +35,16 @@
       },
       "rust-analyzer": {
         "pkg-path": "rust-analyzer",
-        "pkg-group": "rust-analyzer"
+        "pkg-group": "extra"
       },
       "rust-lib-src": {
-        "pkg-path": "rustPlatform.rustLibSrc",
-        "pkg-group": "rust-toolchain"
+        "pkg-path": "rustPlatform.rustLibSrc"
       },
       "rustc": {
-        "pkg-path": "rustc",
-        "pkg-group": "rust-toolchain"
+        "pkg-path": "rustc"
       },
       "rustfmt": {
-        "pkg-path": "rustfmt",
-        "pkg-group": "rust-toolchain"
+        "pkg-path": "rustfmt"
       }
     },
     "hook": {
@@ -63,128 +59,247 @@
         "x86_64-darwin",
         "aarch64-linux",
         "x86_64-linux"
-      ],
-      "allow": {
-        "licenses": []
-      },
-      "semver": {}
+      ]
+    },
+    "build": {
+      "ff": {
+        "command": "  mkdir -p $out/bin\n  cargo build --release\n  cp target/release/ff $out/bin/ff\n",
+        "version": "0.1.0",
+        "description": "A swiss-army knife for working on Flox"
+      }
     }
   },
   "packages": [
     {
-      "attr_path": "rust-analyzer",
+      "attr_path": "cargo-nextest",
       "broken": false,
-      "derivation": "/nix/store/x7db8s467pv9dgi9dkmly03pm4qg2ngb-rust-analyzer-2025-01-20.drv",
-      "description": "Modular compiler frontend for the Rust language",
-      "install_id": "rust-analyzer",
+      "derivation": "/nix/store/8085xcw1r4g5h4hkb9vfyr0qnsf9viap-cargo-nextest-0.9.93.drv",
+      "description": "Next-generation test runner for Rust projects",
+      "install_id": "cargo-nextest",
       "license": "[ MIT, Apache-2.0 ]",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=799ba5bffed04ced7067a91798353d360788b30d",
-      "name": "rust-analyzer-2025-01-20",
-      "pname": "rust-analyzer",
-      "rev": "799ba5bffed04ced7067a91798353d360788b30d",
-      "rev_count": 747653,
-      "rev_date": "2025-02-04T14:46:40Z",
-      "scrape_date": "2025-02-05T00:30:07Z",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=52faf482a3889b7619003c0daec593a1912fddc1",
+      "name": "cargo-nextest-0.9.93",
+      "pname": "cargo-nextest",
+      "rev": "52faf482a3889b7619003c0daec593a1912fddc1",
+      "rev_count": 776537,
+      "rev_date": "2025-03-30T06:12:12Z",
+      "scrape_date": "2025-04-01T01:11:35.722468Z",
       "stabilities": [
         "unstable"
       ],
       "unfree": false,
-      "version": "2025-01-20",
+      "version": "0.9.93",
       "outputs_to_install": [
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/vm13rngf8bgsyj5spr02yskprp4y9plv-rust-analyzer-2025-01-20"
+        "out": "/nix/store/nrzm4808fs6kd35sbv6bmawin0kkxg1n-cargo-nextest-0.9.93"
       },
       "system": "aarch64-darwin",
-      "group": "rust-analyzer",
+      "group": "extra",
       "priority": 5
     },
     {
-      "attr_path": "rust-analyzer",
+      "attr_path": "cargo-nextest",
       "broken": false,
-      "derivation": "/nix/store/75r8dwqlsadynvrimlzx9xflxziad3jy-rust-analyzer-2025-01-20.drv",
-      "description": "Modular compiler frontend for the Rust language",
-      "install_id": "rust-analyzer",
+      "derivation": "/nix/store/91z97iayjqqm6rymx6rq128yxniilfiz-cargo-nextest-0.9.93.drv",
+      "description": "Next-generation test runner for Rust projects",
+      "install_id": "cargo-nextest",
       "license": "[ MIT, Apache-2.0 ]",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=799ba5bffed04ced7067a91798353d360788b30d",
-      "name": "rust-analyzer-2025-01-20",
-      "pname": "rust-analyzer",
-      "rev": "799ba5bffed04ced7067a91798353d360788b30d",
-      "rev_count": 747653,
-      "rev_date": "2025-02-04T14:46:40Z",
-      "scrape_date": "2025-02-05T00:30:07Z",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=52faf482a3889b7619003c0daec593a1912fddc1",
+      "name": "cargo-nextest-0.9.93",
+      "pname": "cargo-nextest",
+      "rev": "52faf482a3889b7619003c0daec593a1912fddc1",
+      "rev_count": 776537,
+      "rev_date": "2025-03-30T06:12:12Z",
+      "scrape_date": "2025-04-01T01:46:42.132654Z",
       "stabilities": [
         "unstable"
       ],
       "unfree": false,
-      "version": "2025-01-20",
+      "version": "0.9.93",
       "outputs_to_install": [
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/vg63mmaad8rhcbar4i4mwjqcwr9fhkxc-rust-analyzer-2025-01-20"
+        "out": "/nix/store/sclbq8dhmb0mmwdfi37v5jip41rphqkz-cargo-nextest-0.9.93"
       },
       "system": "x86_64-darwin",
-      "group": "rust-analyzer",
+      "group": "extra",
       "priority": 5
     },
     {
-      "attr_path": "rust-analyzer",
+      "attr_path": "cargo-nextest",
       "broken": false,
-      "derivation": "/nix/store/m70nq2hbdf5knslv836hljb9wjpqa2nk-rust-analyzer-2025-01-20.drv",
-      "description": "Modular compiler frontend for the Rust language",
-      "install_id": "rust-analyzer",
+      "derivation": "/nix/store/sv1g76qy3wwl5dg215yii8gmr8yc27ng-cargo-nextest-0.9.93.drv",
+      "description": "Next-generation test runner for Rust projects",
+      "install_id": "cargo-nextest",
       "license": "[ MIT, Apache-2.0 ]",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=799ba5bffed04ced7067a91798353d360788b30d",
-      "name": "rust-analyzer-2025-01-20",
-      "pname": "rust-analyzer",
-      "rev": "799ba5bffed04ced7067a91798353d360788b30d",
-      "rev_count": 747653,
-      "rev_date": "2025-02-04T14:46:40Z",
-      "scrape_date": "2025-02-05T00:30:07Z",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=52faf482a3889b7619003c0daec593a1912fddc1",
+      "name": "cargo-nextest-0.9.93",
+      "pname": "cargo-nextest",
+      "rev": "52faf482a3889b7619003c0daec593a1912fddc1",
+      "rev_count": 776537,
+      "rev_date": "2025-03-30T06:12:12Z",
+      "scrape_date": "2025-04-01T01:30:11.824616Z",
       "stabilities": [
         "unstable"
       ],
       "unfree": false,
-      "version": "2025-01-20",
+      "version": "0.9.93",
       "outputs_to_install": [
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/d91hi49k8qf99nlja223780y5jskyzds-rust-analyzer-2025-01-20"
+        "out": "/nix/store/iyk8dsfd14iqz19nrdldhavwbqn402qv-cargo-nextest-0.9.93"
       },
       "system": "aarch64-linux",
-      "group": "rust-analyzer",
+      "group": "extra",
+      "priority": 5
+    },
+    {
+      "attr_path": "cargo-nextest",
+      "broken": false,
+      "derivation": "/nix/store/w4qx12wsfrs8wm93xihy2ahsd531flfk-cargo-nextest-0.9.93.drv",
+      "description": "Next-generation test runner for Rust projects",
+      "install_id": "cargo-nextest",
+      "license": "[ MIT, Apache-2.0 ]",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=52faf482a3889b7619003c0daec593a1912fddc1",
+      "name": "cargo-nextest-0.9.93",
+      "pname": "cargo-nextest",
+      "rev": "52faf482a3889b7619003c0daec593a1912fddc1",
+      "rev_count": 776537,
+      "rev_date": "2025-03-30T06:12:12Z",
+      "scrape_date": "2025-04-01T02:06:54.388362Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "0.9.93",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/d1g0ypv08a50016f8r8ix8bwxad9zany-cargo-nextest-0.9.93"
+      },
+      "system": "x86_64-linux",
+      "group": "extra",
       "priority": 5
     },
     {
       "attr_path": "rust-analyzer",
       "broken": false,
-      "derivation": "/nix/store/7qx15zc021llmys7sv9id97psfhjvq0f-rust-analyzer-2025-01-20.drv",
+      "derivation": "/nix/store/3y6h8mnyfa9bwfpci11rd6pg7i03lzmf-rust-analyzer-2025-03-24.drv",
       "description": "Modular compiler frontend for the Rust language",
       "install_id": "rust-analyzer",
       "license": "[ MIT, Apache-2.0 ]",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=799ba5bffed04ced7067a91798353d360788b30d",
-      "name": "rust-analyzer-2025-01-20",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=52faf482a3889b7619003c0daec593a1912fddc1",
+      "name": "rust-analyzer-2025-03-24",
       "pname": "rust-analyzer",
-      "rev": "799ba5bffed04ced7067a91798353d360788b30d",
-      "rev_count": 747653,
-      "rev_date": "2025-02-04T14:46:40Z",
-      "scrape_date": "2025-02-05T00:30:07Z",
+      "rev": "52faf482a3889b7619003c0daec593a1912fddc1",
+      "rev_count": 776537,
+      "rev_date": "2025-03-30T06:12:12Z",
+      "scrape_date": "2025-04-01T01:12:07.021949Z",
       "stabilities": [
         "unstable"
       ],
       "unfree": false,
-      "version": "2025-01-20",
+      "version": "2025-03-24",
       "outputs_to_install": [
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/6mkyvjjvsp4ymakvbqvqb3vpdqrffzyf-rust-analyzer-2025-01-20"
+        "out": "/nix/store/025ihym8m2k5hr89maimbsn5fksnm0x0-rust-analyzer-2025-03-24"
+      },
+      "system": "aarch64-darwin",
+      "group": "extra",
+      "priority": 5
+    },
+    {
+      "attr_path": "rust-analyzer",
+      "broken": false,
+      "derivation": "/nix/store/45kl8x2c0jmq5x4rqnz312q8j8jzjy5x-rust-analyzer-2025-03-24.drv",
+      "description": "Modular compiler frontend for the Rust language",
+      "install_id": "rust-analyzer",
+      "license": "[ MIT, Apache-2.0 ]",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=52faf482a3889b7619003c0daec593a1912fddc1",
+      "name": "rust-analyzer-2025-03-24",
+      "pname": "rust-analyzer",
+      "rev": "52faf482a3889b7619003c0daec593a1912fddc1",
+      "rev_count": 776537,
+      "rev_date": "2025-03-30T06:12:12Z",
+      "scrape_date": "2025-04-01T01:47:13.494225Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "2025-03-24",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/xkr2ca327rdwld9wxspb1rszp27xfh96-rust-analyzer-2025-03-24"
+      },
+      "system": "x86_64-darwin",
+      "group": "extra",
+      "priority": 5
+    },
+    {
+      "attr_path": "rust-analyzer",
+      "broken": false,
+      "derivation": "/nix/store/1q8mpdlnzk70dngb8q197njfv99qyhac-rust-analyzer-2025-03-24.drv",
+      "description": "Modular compiler frontend for the Rust language",
+      "install_id": "rust-analyzer",
+      "license": "[ MIT, Apache-2.0 ]",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=52faf482a3889b7619003c0daec593a1912fddc1",
+      "name": "rust-analyzer-2025-03-24",
+      "pname": "rust-analyzer",
+      "rev": "52faf482a3889b7619003c0daec593a1912fddc1",
+      "rev_count": 776537,
+      "rev_date": "2025-03-30T06:12:12Z",
+      "scrape_date": "2025-04-01T01:31:06.235179Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "2025-03-24",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/1bwal5rhbz7l0n39q4drdpghqb0s1pz4-rust-analyzer-2025-03-24"
+      },
+      "system": "aarch64-linux",
+      "group": "extra",
+      "priority": 5
+    },
+    {
+      "attr_path": "rust-analyzer",
+      "broken": false,
+      "derivation": "/nix/store/bwbiak7ax9ic5iv2rvxzn1c8m83hwm6l-rust-analyzer-2025-03-24.drv",
+      "description": "Modular compiler frontend for the Rust language",
+      "install_id": "rust-analyzer",
+      "license": "[ MIT, Apache-2.0 ]",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=52faf482a3889b7619003c0daec593a1912fddc1",
+      "name": "rust-analyzer-2025-03-24",
+      "pname": "rust-analyzer",
+      "rev": "52faf482a3889b7619003c0daec593a1912fddc1",
+      "rev_count": 776537,
+      "rev_date": "2025-03-30T06:12:12Z",
+      "scrape_date": "2025-04-01T02:07:55.788195Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "2025-03-24",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/v4mdgjh4x0gpl5cwc844zyy2hy1gxs6c-rust-analyzer-2025-03-24"
       },
       "system": "x86_64-linux",
-      "group": "rust-analyzer",
+      "group": "extra",
       "priority": 5
     },
     {
@@ -202,6 +317,7 @@
       "rev_date": "2025-02-04T14:46:40Z",
       "scrape_date": "2025-02-05T00:30:07Z",
       "stabilities": [
+        "staging",
         "unstable"
       ],
       "unfree": false,
@@ -213,7 +329,7 @@
         "out": "/nix/store/ivrvbcih28j6nqd3dhl4hsb95nrfmi4c-cargo-1.83.0"
       },
       "system": "aarch64-darwin",
-      "group": "rust-toolchain",
+      "group": "toplevel",
       "priority": 5
     },
     {
@@ -231,6 +347,7 @@
       "rev_date": "2025-02-04T14:46:40Z",
       "scrape_date": "2025-02-05T00:30:07Z",
       "stabilities": [
+        "staging",
         "unstable"
       ],
       "unfree": false,
@@ -242,7 +359,7 @@
         "out": "/nix/store/xd628z5gs5dydb97s4fnc5wasyr8arlb-cargo-1.83.0"
       },
       "system": "x86_64-darwin",
-      "group": "rust-toolchain",
+      "group": "toplevel",
       "priority": 5
     },
     {
@@ -260,6 +377,7 @@
       "rev_date": "2025-02-04T14:46:40Z",
       "scrape_date": "2025-02-05T00:30:07Z",
       "stabilities": [
+        "staging",
         "unstable"
       ],
       "unfree": false,
@@ -271,7 +389,7 @@
         "out": "/nix/store/zfbr6c6qqpiqfqsms2133s3la5z1v7ac-cargo-1.83.0"
       },
       "system": "aarch64-linux",
-      "group": "rust-toolchain",
+      "group": "toplevel",
       "priority": 5
     },
     {
@@ -289,6 +407,7 @@
       "rev_date": "2025-02-04T14:46:40Z",
       "scrape_date": "2025-02-05T00:30:07Z",
       "stabilities": [
+        "staging",
         "unstable"
       ],
       "unfree": false,
@@ -298,592 +417,6 @@
       ],
       "outputs": {
         "out": "/nix/store/a9n2kybksza6sn71qwqc6ac781gk9g7v-cargo-1.83.0"
-      },
-      "system": "x86_64-linux",
-      "group": "rust-toolchain",
-      "priority": 5
-    },
-    {
-      "attr_path": "clippy",
-      "broken": false,
-      "derivation": "/nix/store/v74ki4x2345llvq9zik64k59g07czh6d-clippy-1.83.0.drv",
-      "description": "Bunch of lints to catch common mistakes and improve your Rust code",
-      "install_id": "clippy",
-      "license": "[ MIT, Apache-2.0 ]",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=799ba5bffed04ced7067a91798353d360788b30d",
-      "name": "clippy-1.83.0",
-      "pname": "clippy",
-      "rev": "799ba5bffed04ced7067a91798353d360788b30d",
-      "rev_count": 747653,
-      "rev_date": "2025-02-04T14:46:40Z",
-      "scrape_date": "2025-02-05T00:30:07Z",
-      "stabilities": [
-        "unstable"
-      ],
-      "unfree": false,
-      "version": "1.83.0",
-      "outputs_to_install": [
-        "out"
-      ],
-      "outputs": {
-        "out": "/nix/store/hrdwkax8kxwq7i249hqqhy40kw3vqc3a-clippy-1.83.0"
-      },
-      "system": "aarch64-darwin",
-      "group": "rust-toolchain",
-      "priority": 5
-    },
-    {
-      "attr_path": "clippy",
-      "broken": false,
-      "derivation": "/nix/store/yk0pyl71zz0gmclfai9ynd2y1z7b1h27-clippy-1.83.0.drv",
-      "description": "Bunch of lints to catch common mistakes and improve your Rust code",
-      "install_id": "clippy",
-      "license": "[ MIT, Apache-2.0 ]",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=799ba5bffed04ced7067a91798353d360788b30d",
-      "name": "clippy-1.83.0",
-      "pname": "clippy",
-      "rev": "799ba5bffed04ced7067a91798353d360788b30d",
-      "rev_count": 747653,
-      "rev_date": "2025-02-04T14:46:40Z",
-      "scrape_date": "2025-02-05T00:30:07Z",
-      "stabilities": [
-        "unstable"
-      ],
-      "unfree": false,
-      "version": "1.83.0",
-      "outputs_to_install": [
-        "out"
-      ],
-      "outputs": {
-        "out": "/nix/store/qzz2qdljplb4bvxixh6v7hr3cwi5sgii-clippy-1.83.0"
-      },
-      "system": "x86_64-darwin",
-      "group": "rust-toolchain",
-      "priority": 5
-    },
-    {
-      "attr_path": "clippy",
-      "broken": false,
-      "derivation": "/nix/store/imzbmv8xzg18rv07nqx63b7hkflyfhs8-clippy-1.83.0.drv",
-      "description": "Bunch of lints to catch common mistakes and improve your Rust code",
-      "install_id": "clippy",
-      "license": "[ MIT, Apache-2.0 ]",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=799ba5bffed04ced7067a91798353d360788b30d",
-      "name": "clippy-1.83.0",
-      "pname": "clippy",
-      "rev": "799ba5bffed04ced7067a91798353d360788b30d",
-      "rev_count": 747653,
-      "rev_date": "2025-02-04T14:46:40Z",
-      "scrape_date": "2025-02-05T00:30:07Z",
-      "stabilities": [
-        "unstable"
-      ],
-      "unfree": false,
-      "version": "1.83.0",
-      "outputs_to_install": [
-        "out"
-      ],
-      "outputs": {
-        "debug": "/nix/store/zcs8dnp6048fxmsvqd24nynn0pc3f3yi-clippy-1.83.0-debug",
-        "out": "/nix/store/z18q9jicnag8aws6jvdhmm7lvywm8s4b-clippy-1.83.0"
-      },
-      "system": "aarch64-linux",
-      "group": "rust-toolchain",
-      "priority": 5
-    },
-    {
-      "attr_path": "clippy",
-      "broken": false,
-      "derivation": "/nix/store/4018rq9vlp2hzif2j6wnqwcr4ydq2w7r-clippy-1.83.0.drv",
-      "description": "Bunch of lints to catch common mistakes and improve your Rust code",
-      "install_id": "clippy",
-      "license": "[ MIT, Apache-2.0 ]",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=799ba5bffed04ced7067a91798353d360788b30d",
-      "name": "clippy-1.83.0",
-      "pname": "clippy",
-      "rev": "799ba5bffed04ced7067a91798353d360788b30d",
-      "rev_count": 747653,
-      "rev_date": "2025-02-04T14:46:40Z",
-      "scrape_date": "2025-02-05T00:30:07Z",
-      "stabilities": [
-        "unstable"
-      ],
-      "unfree": false,
-      "version": "1.83.0",
-      "outputs_to_install": [
-        "out"
-      ],
-      "outputs": {
-        "debug": "/nix/store/nbhpp7xgrjavqnxhxndm1sji5m5xav50-clippy-1.83.0-debug",
-        "out": "/nix/store/fb0c26fl11ldl4h6fdbj1aipqly7yv21-clippy-1.83.0"
-      },
-      "system": "x86_64-linux",
-      "group": "rust-toolchain",
-      "priority": 5
-    },
-    {
-      "attr_path": "rustPlatform.rustLibSrc",
-      "broken": false,
-      "derivation": "/nix/store/g6yl3rbfp73cfrrpnxa2b0pa1gsxdqpl-rust-lib-src.drv",
-      "install_id": "rust-lib-src",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=799ba5bffed04ced7067a91798353d360788b30d",
-      "name": "rust-lib-src",
-      "pname": "rustLibSrc",
-      "rev": "799ba5bffed04ced7067a91798353d360788b30d",
-      "rev_count": 747653,
-      "rev_date": "2025-02-04T14:46:40Z",
-      "scrape_date": "2025-02-05T00:30:07Z",
-      "stabilities": [
-        "unstable"
-      ],
-      "unfree": false,
-      "version": "rust-lib-src",
-      "outputs_to_install": [
-        "out"
-      ],
-      "outputs": {
-        "out": "/nix/store/2chdj095j3qlrf1fxs49bbxrf0lbwm43-rust-lib-src"
-      },
-      "system": "aarch64-darwin",
-      "group": "rust-toolchain",
-      "priority": 5
-    },
-    {
-      "attr_path": "rustPlatform.rustLibSrc",
-      "broken": false,
-      "derivation": "/nix/store/vgjixhal2g5wy3kl63blcxkhfdpdqi41-rust-lib-src.drv",
-      "install_id": "rust-lib-src",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=799ba5bffed04ced7067a91798353d360788b30d",
-      "name": "rust-lib-src",
-      "pname": "rustLibSrc",
-      "rev": "799ba5bffed04ced7067a91798353d360788b30d",
-      "rev_count": 747653,
-      "rev_date": "2025-02-04T14:46:40Z",
-      "scrape_date": "2025-02-05T00:30:07Z",
-      "stabilities": [
-        "unstable"
-      ],
-      "unfree": false,
-      "version": "rust-lib-src",
-      "outputs_to_install": [
-        "out"
-      ],
-      "outputs": {
-        "out": "/nix/store/43nxmn37qm5xmb563yvdr07iczr8nkry-rust-lib-src"
-      },
-      "system": "x86_64-darwin",
-      "group": "rust-toolchain",
-      "priority": 5
-    },
-    {
-      "attr_path": "rustPlatform.rustLibSrc",
-      "broken": false,
-      "derivation": "/nix/store/ib0rf6nrk4syfzizf6ayvgd09s18np60-rust-lib-src.drv",
-      "install_id": "rust-lib-src",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=799ba5bffed04ced7067a91798353d360788b30d",
-      "name": "rust-lib-src",
-      "pname": "rustLibSrc",
-      "rev": "799ba5bffed04ced7067a91798353d360788b30d",
-      "rev_count": 747653,
-      "rev_date": "2025-02-04T14:46:40Z",
-      "scrape_date": "2025-02-05T00:30:07Z",
-      "stabilities": [
-        "unstable"
-      ],
-      "unfree": false,
-      "version": "rust-lib-src",
-      "outputs_to_install": [
-        "out"
-      ],
-      "outputs": {
-        "out": "/nix/store/rfk930fqmkmyglpgkvaqqllm4y8jz4mp-rust-lib-src"
-      },
-      "system": "aarch64-linux",
-      "group": "rust-toolchain",
-      "priority": 5
-    },
-    {
-      "attr_path": "rustPlatform.rustLibSrc",
-      "broken": false,
-      "derivation": "/nix/store/x2yf164p6zqqhbv55n27b94jxhp27q6z-rust-lib-src.drv",
-      "install_id": "rust-lib-src",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=799ba5bffed04ced7067a91798353d360788b30d",
-      "name": "rust-lib-src",
-      "pname": "rustLibSrc",
-      "rev": "799ba5bffed04ced7067a91798353d360788b30d",
-      "rev_count": 747653,
-      "rev_date": "2025-02-04T14:46:40Z",
-      "scrape_date": "2025-02-05T00:30:07Z",
-      "stabilities": [
-        "unstable"
-      ],
-      "unfree": false,
-      "version": "rust-lib-src",
-      "outputs_to_install": [
-        "out"
-      ],
-      "outputs": {
-        "out": "/nix/store/6xgbvvpbqybs57icw012qn892dm7niak-rust-lib-src"
-      },
-      "system": "x86_64-linux",
-      "group": "rust-toolchain",
-      "priority": 5
-    },
-    {
-      "attr_path": "rustc",
-      "broken": false,
-      "derivation": "/nix/store/sygaqs0xv10sgc4lvhasf887mib2v2gy-rustc-wrapper-1.83.0.drv",
-      "description": "Safe, concurrent, practical language (wrapper script)",
-      "install_id": "rustc",
-      "license": "[ MIT, Apache-2.0 ]",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=799ba5bffed04ced7067a91798353d360788b30d",
-      "name": "rustc-wrapper-1.83.0",
-      "pname": "rustc",
-      "rev": "799ba5bffed04ced7067a91798353d360788b30d",
-      "rev_count": 747653,
-      "rev_date": "2025-02-04T14:46:40Z",
-      "scrape_date": "2025-02-05T00:30:07Z",
-      "stabilities": [
-        "unstable"
-      ],
-      "unfree": false,
-      "version": "wrapper-1.83.0",
-      "outputs_to_install": [
-        "man",
-        "out"
-      ],
-      "outputs": {
-        "doc": "/nix/store/3xszjikd7zs80gnbbndlynkdkdh5z4ld-rustc-wrapper-1.83.0-doc",
-        "man": "/nix/store/bikqq7v08s7d5gm31g90fnr8n2s600wn-rustc-wrapper-1.83.0-man",
-        "out": "/nix/store/7c2sk5bn8vj1qwrgn79sy77hr0g5zhnl-rustc-wrapper-1.83.0"
-      },
-      "system": "aarch64-darwin",
-      "group": "rust-toolchain",
-      "priority": 5
-    },
-    {
-      "attr_path": "rustc",
-      "broken": false,
-      "derivation": "/nix/store/a8mdjzpaywsms53aagyf7r8v8phfc3rh-rustc-wrapper-1.83.0.drv",
-      "description": "Safe, concurrent, practical language (wrapper script)",
-      "install_id": "rustc",
-      "license": "[ MIT, Apache-2.0 ]",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=799ba5bffed04ced7067a91798353d360788b30d",
-      "name": "rustc-wrapper-1.83.0",
-      "pname": "rustc",
-      "rev": "799ba5bffed04ced7067a91798353d360788b30d",
-      "rev_count": 747653,
-      "rev_date": "2025-02-04T14:46:40Z",
-      "scrape_date": "2025-02-05T00:30:07Z",
-      "stabilities": [
-        "unstable"
-      ],
-      "unfree": false,
-      "version": "wrapper-1.83.0",
-      "outputs_to_install": [
-        "man",
-        "out"
-      ],
-      "outputs": {
-        "doc": "/nix/store/ksc5dd88db6wbffaq79yf0y9gjcad3sh-rustc-wrapper-1.83.0-doc",
-        "man": "/nix/store/c8qpa1sw7ia8qa1dw1wf7z1gvymn6v7k-rustc-wrapper-1.83.0-man",
-        "out": "/nix/store/4bg9n0hvbfp1nlkclrjww9jd5jg4bf3h-rustc-wrapper-1.83.0"
-      },
-      "system": "x86_64-darwin",
-      "group": "rust-toolchain",
-      "priority": 5
-    },
-    {
-      "attr_path": "rustc",
-      "broken": false,
-      "derivation": "/nix/store/5gh2zb9ca6116hxlcg95f5jwc18dd9g1-rustc-wrapper-1.83.0.drv",
-      "description": "Safe, concurrent, practical language (wrapper script)",
-      "install_id": "rustc",
-      "license": "[ MIT, Apache-2.0 ]",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=799ba5bffed04ced7067a91798353d360788b30d",
-      "name": "rustc-wrapper-1.83.0",
-      "pname": "rustc",
-      "rev": "799ba5bffed04ced7067a91798353d360788b30d",
-      "rev_count": 747653,
-      "rev_date": "2025-02-04T14:46:40Z",
-      "scrape_date": "2025-02-05T00:30:07Z",
-      "stabilities": [
-        "unstable"
-      ],
-      "unfree": false,
-      "version": "wrapper-1.83.0",
-      "outputs_to_install": [
-        "man",
-        "out"
-      ],
-      "outputs": {
-        "doc": "/nix/store/g4qgyjnc10z61cn5gf5krwmwqrsvr32b-rustc-wrapper-1.83.0-doc",
-        "man": "/nix/store/nni4b5ssd0rvw1xwyzlawfbqbg3r4rd5-rustc-wrapper-1.83.0-man",
-        "out": "/nix/store/0xc2a1l10ggsssh0jrwhwk58xi0kj84i-rustc-wrapper-1.83.0"
-      },
-      "system": "aarch64-linux",
-      "group": "rust-toolchain",
-      "priority": 5
-    },
-    {
-      "attr_path": "rustc",
-      "broken": false,
-      "derivation": "/nix/store/jm1ljhx7hhd7achyr3j33im8j5xc49y5-rustc-wrapper-1.83.0.drv",
-      "description": "Safe, concurrent, practical language (wrapper script)",
-      "install_id": "rustc",
-      "license": "[ MIT, Apache-2.0 ]",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=799ba5bffed04ced7067a91798353d360788b30d",
-      "name": "rustc-wrapper-1.83.0",
-      "pname": "rustc",
-      "rev": "799ba5bffed04ced7067a91798353d360788b30d",
-      "rev_count": 747653,
-      "rev_date": "2025-02-04T14:46:40Z",
-      "scrape_date": "2025-02-05T00:30:07Z",
-      "stabilities": [
-        "unstable"
-      ],
-      "unfree": false,
-      "version": "wrapper-1.83.0",
-      "outputs_to_install": [
-        "man",
-        "out"
-      ],
-      "outputs": {
-        "doc": "/nix/store/s6h6741lig77473q77jg5a3jh8991a6k-rustc-wrapper-1.83.0-doc",
-        "man": "/nix/store/szr3wmmrcdzf59n1y9x7ry6ncqb93s69-rustc-wrapper-1.83.0-man",
-        "out": "/nix/store/f10frz81pb9j2bxx3vc394cgq0y9dnyd-rustc-wrapper-1.83.0"
-      },
-      "system": "x86_64-linux",
-      "group": "rust-toolchain",
-      "priority": 5
-    },
-    {
-      "attr_path": "rustfmt",
-      "broken": false,
-      "derivation": "/nix/store/la2pazqrlb5gajx5kxijgbarvm9vgf2d-rustfmt-1.83.0.drv",
-      "description": "Tool for formatting Rust code according to style guidelines",
-      "install_id": "rustfmt",
-      "license": "[ MIT, Apache-2.0 ]",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=799ba5bffed04ced7067a91798353d360788b30d",
-      "name": "rustfmt-1.83.0",
-      "pname": "rustfmt",
-      "rev": "799ba5bffed04ced7067a91798353d360788b30d",
-      "rev_count": 747653,
-      "rev_date": "2025-02-04T14:46:40Z",
-      "scrape_date": "2025-02-05T00:30:07Z",
-      "stabilities": [
-        "unstable"
-      ],
-      "unfree": false,
-      "version": "1.83.0",
-      "outputs_to_install": [
-        "out"
-      ],
-      "outputs": {
-        "out": "/nix/store/flml6db7rdfb3y57zm63kqpy6g65k9aq-rustfmt-1.83.0"
-      },
-      "system": "aarch64-darwin",
-      "group": "rust-toolchain",
-      "priority": 5
-    },
-    {
-      "attr_path": "rustfmt",
-      "broken": false,
-      "derivation": "/nix/store/nyc43x7hvbj10qk42g6cafiq1hf87ck3-rustfmt-1.83.0.drv",
-      "description": "Tool for formatting Rust code according to style guidelines",
-      "install_id": "rustfmt",
-      "license": "[ MIT, Apache-2.0 ]",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=799ba5bffed04ced7067a91798353d360788b30d",
-      "name": "rustfmt-1.83.0",
-      "pname": "rustfmt",
-      "rev": "799ba5bffed04ced7067a91798353d360788b30d",
-      "rev_count": 747653,
-      "rev_date": "2025-02-04T14:46:40Z",
-      "scrape_date": "2025-02-05T00:30:07Z",
-      "stabilities": [
-        "unstable"
-      ],
-      "unfree": false,
-      "version": "1.83.0",
-      "outputs_to_install": [
-        "out"
-      ],
-      "outputs": {
-        "out": "/nix/store/sicy5f8fdndangnbx17w2v34ldlrwykf-rustfmt-1.83.0"
-      },
-      "system": "x86_64-darwin",
-      "group": "rust-toolchain",
-      "priority": 5
-    },
-    {
-      "attr_path": "rustfmt",
-      "broken": false,
-      "derivation": "/nix/store/1zk8akkl5qmbah9rn30vli6p6hv5isaz-rustfmt-1.83.0.drv",
-      "description": "Tool for formatting Rust code according to style guidelines",
-      "install_id": "rustfmt",
-      "license": "[ MIT, Apache-2.0 ]",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=799ba5bffed04ced7067a91798353d360788b30d",
-      "name": "rustfmt-1.83.0",
-      "pname": "rustfmt",
-      "rev": "799ba5bffed04ced7067a91798353d360788b30d",
-      "rev_count": 747653,
-      "rev_date": "2025-02-04T14:46:40Z",
-      "scrape_date": "2025-02-05T00:30:07Z",
-      "stabilities": [
-        "unstable"
-      ],
-      "unfree": false,
-      "version": "1.83.0",
-      "outputs_to_install": [
-        "out"
-      ],
-      "outputs": {
-        "out": "/nix/store/kl5rj9ian2ag6b0rsiwry4bijkha7pcb-rustfmt-1.83.0"
-      },
-      "system": "aarch64-linux",
-      "group": "rust-toolchain",
-      "priority": 5
-    },
-    {
-      "attr_path": "rustfmt",
-      "broken": false,
-      "derivation": "/nix/store/jl1s2wm925rk06v47614ly3l20rx4by6-rustfmt-1.83.0.drv",
-      "description": "Tool for formatting Rust code according to style guidelines",
-      "install_id": "rustfmt",
-      "license": "[ MIT, Apache-2.0 ]",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=799ba5bffed04ced7067a91798353d360788b30d",
-      "name": "rustfmt-1.83.0",
-      "pname": "rustfmt",
-      "rev": "799ba5bffed04ced7067a91798353d360788b30d",
-      "rev_count": 747653,
-      "rev_date": "2025-02-04T14:46:40Z",
-      "scrape_date": "2025-02-05T00:30:07Z",
-      "stabilities": [
-        "unstable"
-      ],
-      "unfree": false,
-      "version": "1.83.0",
-      "outputs_to_install": [
-        "out"
-      ],
-      "outputs": {
-        "out": "/nix/store/00h51vwbfcylzx6rl2p8dh6dq3yz9nlv-rustfmt-1.83.0"
-      },
-      "system": "x86_64-linux",
-      "group": "rust-toolchain",
-      "priority": 5
-    },
-    {
-      "attr_path": "cargo-nextest",
-      "broken": false,
-      "derivation": "/nix/store/8njha9brk75ccyqk1zhmhx24kbmfgmlc-cargo-nextest-0.9.87.drv",
-      "description": "Next-generation test runner for Rust projects",
-      "install_id": "cargo-nextest",
-      "license": "[ MIT, Apache-2.0 ]",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=799ba5bffed04ced7067a91798353d360788b30d",
-      "name": "cargo-nextest-0.9.87",
-      "pname": "cargo-nextest",
-      "rev": "799ba5bffed04ced7067a91798353d360788b30d",
-      "rev_count": 747653,
-      "rev_date": "2025-02-04T14:46:40Z",
-      "scrape_date": "2025-02-05T00:30:07Z",
-      "stabilities": [
-        "unstable"
-      ],
-      "unfree": false,
-      "version": "0.9.87",
-      "outputs_to_install": [
-        "out"
-      ],
-      "outputs": {
-        "out": "/nix/store/4sxv3mr4vgjyvpssjy6gaqcp7x08p62q-cargo-nextest-0.9.87"
-      },
-      "system": "aarch64-darwin",
-      "group": "toplevel",
-      "priority": 5
-    },
-    {
-      "attr_path": "cargo-nextest",
-      "broken": false,
-      "derivation": "/nix/store/yaxz4c52sg0c7hnivjy8in329dy36gwq-cargo-nextest-0.9.87.drv",
-      "description": "Next-generation test runner for Rust projects",
-      "install_id": "cargo-nextest",
-      "license": "[ MIT, Apache-2.0 ]",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=799ba5bffed04ced7067a91798353d360788b30d",
-      "name": "cargo-nextest-0.9.87",
-      "pname": "cargo-nextest",
-      "rev": "799ba5bffed04ced7067a91798353d360788b30d",
-      "rev_count": 747653,
-      "rev_date": "2025-02-04T14:46:40Z",
-      "scrape_date": "2025-02-05T00:30:07Z",
-      "stabilities": [
-        "unstable"
-      ],
-      "unfree": false,
-      "version": "0.9.87",
-      "outputs_to_install": [
-        "out"
-      ],
-      "outputs": {
-        "out": "/nix/store/j8pp10j3akk6k9a0r4dbp6m7wggk9s8q-cargo-nextest-0.9.87"
-      },
-      "system": "x86_64-darwin",
-      "group": "toplevel",
-      "priority": 5
-    },
-    {
-      "attr_path": "cargo-nextest",
-      "broken": false,
-      "derivation": "/nix/store/jpng3vmck2mjd0r4b61a84ndn1l81nbp-cargo-nextest-0.9.87.drv",
-      "description": "Next-generation test runner for Rust projects",
-      "install_id": "cargo-nextest",
-      "license": "[ MIT, Apache-2.0 ]",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=799ba5bffed04ced7067a91798353d360788b30d",
-      "name": "cargo-nextest-0.9.87",
-      "pname": "cargo-nextest",
-      "rev": "799ba5bffed04ced7067a91798353d360788b30d",
-      "rev_count": 747653,
-      "rev_date": "2025-02-04T14:46:40Z",
-      "scrape_date": "2025-02-05T00:30:07Z",
-      "stabilities": [
-        "unstable"
-      ],
-      "unfree": false,
-      "version": "0.9.87",
-      "outputs_to_install": [
-        "out"
-      ],
-      "outputs": {
-        "out": "/nix/store/7m4k4krbi2ni856rssspbmx13ydp9xzc-cargo-nextest-0.9.87"
-      },
-      "system": "aarch64-linux",
-      "group": "toplevel",
-      "priority": 5
-    },
-    {
-      "attr_path": "cargo-nextest",
-      "broken": false,
-      "derivation": "/nix/store/jk7im5xi93dyvr85y4iyi1yxf66jw1dc-cargo-nextest-0.9.87.drv",
-      "description": "Next-generation test runner for Rust projects",
-      "install_id": "cargo-nextest",
-      "license": "[ MIT, Apache-2.0 ]",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=799ba5bffed04ced7067a91798353d360788b30d",
-      "name": "cargo-nextest-0.9.87",
-      "pname": "cargo-nextest",
-      "rev": "799ba5bffed04ced7067a91798353d360788b30d",
-      "rev_count": 747653,
-      "rev_date": "2025-02-04T14:46:40Z",
-      "scrape_date": "2025-02-05T00:30:07Z",
-      "stabilities": [
-        "unstable"
-      ],
-      "unfree": false,
-      "version": "0.9.87",
-      "outputs_to_install": [
-        "out"
-      ],
-      "outputs": {
-        "out": "/nix/store/bzl8g2f5winnj0257aqjl9yfdfrb8sd4-cargo-nextest-0.9.87"
       },
       "system": "x86_64-linux",
       "group": "toplevel",
@@ -904,10 +437,11 @@
       "rev_date": "2025-02-04T14:46:40Z",
       "scrape_date": "2025-02-05T00:30:07Z",
       "stabilities": [
+        "staging",
         "unstable"
       ],
       "unfree": false,
-      "version": "wrapper-19.1.6",
+      "version": "19.1.6",
       "outputs_to_install": [
         "out"
       ],
@@ -915,6 +449,128 @@
         "out": "/nix/store/x25662zlrvzy1aavv8y5vrk40bj8c8hr-clang-wrapper-19.1.6"
       },
       "system": "aarch64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "clippy",
+      "broken": false,
+      "derivation": "/nix/store/v74ki4x2345llvq9zik64k59g07czh6d-clippy-1.83.0.drv",
+      "description": "Bunch of lints to catch common mistakes and improve your Rust code",
+      "install_id": "clippy",
+      "license": "[ MIT, Apache-2.0 ]",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=799ba5bffed04ced7067a91798353d360788b30d",
+      "name": "clippy-1.83.0",
+      "pname": "clippy",
+      "rev": "799ba5bffed04ced7067a91798353d360788b30d",
+      "rev_count": 747653,
+      "rev_date": "2025-02-04T14:46:40Z",
+      "scrape_date": "2025-02-05T00:30:07Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "1.83.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/hrdwkax8kxwq7i249hqqhy40kw3vqc3a-clippy-1.83.0"
+      },
+      "system": "aarch64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "clippy",
+      "broken": false,
+      "derivation": "/nix/store/yk0pyl71zz0gmclfai9ynd2y1z7b1h27-clippy-1.83.0.drv",
+      "description": "Bunch of lints to catch common mistakes and improve your Rust code",
+      "install_id": "clippy",
+      "license": "[ MIT, Apache-2.0 ]",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=799ba5bffed04ced7067a91798353d360788b30d",
+      "name": "clippy-1.83.0",
+      "pname": "clippy",
+      "rev": "799ba5bffed04ced7067a91798353d360788b30d",
+      "rev_count": 747653,
+      "rev_date": "2025-02-04T14:46:40Z",
+      "scrape_date": "2025-02-05T00:30:07Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "1.83.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/qzz2qdljplb4bvxixh6v7hr3cwi5sgii-clippy-1.83.0"
+      },
+      "system": "x86_64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "clippy",
+      "broken": false,
+      "derivation": "/nix/store/imzbmv8xzg18rv07nqx63b7hkflyfhs8-clippy-1.83.0.drv",
+      "description": "Bunch of lints to catch common mistakes and improve your Rust code",
+      "install_id": "clippy",
+      "license": "[ MIT, Apache-2.0 ]",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=799ba5bffed04ced7067a91798353d360788b30d",
+      "name": "clippy-1.83.0",
+      "pname": "clippy",
+      "rev": "799ba5bffed04ced7067a91798353d360788b30d",
+      "rev_count": 747653,
+      "rev_date": "2025-02-04T14:46:40Z",
+      "scrape_date": "2025-02-05T00:30:07Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "1.83.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "debug": "/nix/store/zcs8dnp6048fxmsvqd24nynn0pc3f3yi-clippy-1.83.0-debug",
+        "out": "/nix/store/z18q9jicnag8aws6jvdhmm7lvywm8s4b-clippy-1.83.0"
+      },
+      "system": "aarch64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "clippy",
+      "broken": false,
+      "derivation": "/nix/store/4018rq9vlp2hzif2j6wnqwcr4ydq2w7r-clippy-1.83.0.drv",
+      "description": "Bunch of lints to catch common mistakes and improve your Rust code",
+      "install_id": "clippy",
+      "license": "[ MIT, Apache-2.0 ]",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=799ba5bffed04ced7067a91798353d360788b30d",
+      "name": "clippy-1.83.0",
+      "pname": "clippy",
+      "rev": "799ba5bffed04ced7067a91798353d360788b30d",
+      "rev_count": 747653,
+      "rev_date": "2025-02-04T14:46:40Z",
+      "scrape_date": "2025-02-05T00:30:07Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "1.83.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "debug": "/nix/store/nbhpp7xgrjavqnxhxndm1sji5m5xav50-clippy-1.83.0-debug",
+        "out": "/nix/store/fb0c26fl11ldl4h6fdbj1aipqly7yv21-clippy-1.83.0"
+      },
+      "system": "x86_64-linux",
       "group": "toplevel",
       "priority": 5
     },
@@ -933,10 +589,11 @@
       "rev_date": "2025-02-04T14:46:40Z",
       "scrape_date": "2025-02-05T00:30:07Z",
       "stabilities": [
+        "staging",
         "unstable"
       ],
       "unfree": false,
-      "version": "wrapper-14-20241116",
+      "version": "14-20241116",
       "outputs_to_install": [
         "man",
         "out"
@@ -965,10 +622,11 @@
       "rev_date": "2025-02-04T14:46:40Z",
       "scrape_date": "2025-02-05T00:30:07Z",
       "stabilities": [
+        "staging",
         "unstable"
       ],
       "unfree": false,
-      "version": "wrapper-14-20241116",
+      "version": "14-20241116",
       "outputs_to_install": [
         "man",
         "out"
@@ -997,6 +655,7 @@
       "rev_date": "2025-02-04T14:46:40Z",
       "scrape_date": "2025-02-05T00:30:07Z",
       "stabilities": [
+        "staging",
         "unstable"
       ],
       "unfree": false,
@@ -1027,6 +686,7 @@
       "rev_date": "2025-02-04T14:46:40Z",
       "scrape_date": "2025-02-05T00:30:07Z",
       "stabilities": [
+        "staging",
         "unstable"
       ],
       "unfree": false,
@@ -1039,6 +699,370 @@
         "out": "/nix/store/lr7yd2fg1b6ciff3i2m9jbrj24nhizfq-libiconv-107"
       },
       "system": "x86_64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "rustPlatform.rustLibSrc",
+      "broken": false,
+      "derivation": "/nix/store/g6yl3rbfp73cfrrpnxa2b0pa1gsxdqpl-rust-lib-src.drv",
+      "install_id": "rust-lib-src",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=799ba5bffed04ced7067a91798353d360788b30d",
+      "name": "rust-lib-src",
+      "pname": "rustLibSrc",
+      "rev": "799ba5bffed04ced7067a91798353d360788b30d",
+      "rev_count": 747653,
+      "rev_date": "2025-02-04T14:46:40Z",
+      "scrape_date": "2025-02-05T00:30:07Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "rust-lib-src",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/2chdj095j3qlrf1fxs49bbxrf0lbwm43-rust-lib-src"
+      },
+      "system": "aarch64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "rustPlatform.rustLibSrc",
+      "broken": false,
+      "derivation": "/nix/store/vgjixhal2g5wy3kl63blcxkhfdpdqi41-rust-lib-src.drv",
+      "install_id": "rust-lib-src",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=799ba5bffed04ced7067a91798353d360788b30d",
+      "name": "rust-lib-src",
+      "pname": "rustLibSrc",
+      "rev": "799ba5bffed04ced7067a91798353d360788b30d",
+      "rev_count": 747653,
+      "rev_date": "2025-02-04T14:46:40Z",
+      "scrape_date": "2025-02-05T00:30:07Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "rust-lib-src",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/43nxmn37qm5xmb563yvdr07iczr8nkry-rust-lib-src"
+      },
+      "system": "x86_64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "rustPlatform.rustLibSrc",
+      "broken": false,
+      "derivation": "/nix/store/ib0rf6nrk4syfzizf6ayvgd09s18np60-rust-lib-src.drv",
+      "install_id": "rust-lib-src",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=799ba5bffed04ced7067a91798353d360788b30d",
+      "name": "rust-lib-src",
+      "pname": "rustLibSrc",
+      "rev": "799ba5bffed04ced7067a91798353d360788b30d",
+      "rev_count": 747653,
+      "rev_date": "2025-02-04T14:46:40Z",
+      "scrape_date": "2025-02-05T00:30:07Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "rust-lib-src",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/rfk930fqmkmyglpgkvaqqllm4y8jz4mp-rust-lib-src"
+      },
+      "system": "aarch64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "rustPlatform.rustLibSrc",
+      "broken": false,
+      "derivation": "/nix/store/x2yf164p6zqqhbv55n27b94jxhp27q6z-rust-lib-src.drv",
+      "install_id": "rust-lib-src",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=799ba5bffed04ced7067a91798353d360788b30d",
+      "name": "rust-lib-src",
+      "pname": "rustLibSrc",
+      "rev": "799ba5bffed04ced7067a91798353d360788b30d",
+      "rev_count": 747653,
+      "rev_date": "2025-02-04T14:46:40Z",
+      "scrape_date": "2025-02-05T00:30:07Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "rust-lib-src",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/6xgbvvpbqybs57icw012qn892dm7niak-rust-lib-src"
+      },
+      "system": "x86_64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "rustc",
+      "broken": false,
+      "derivation": "/nix/store/sygaqs0xv10sgc4lvhasf887mib2v2gy-rustc-wrapper-1.83.0.drv",
+      "description": "Safe, concurrent, practical language (wrapper script)",
+      "install_id": "rustc",
+      "license": "[ MIT, Apache-2.0 ]",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=799ba5bffed04ced7067a91798353d360788b30d",
+      "name": "rustc-wrapper-1.83.0",
+      "pname": "rustc",
+      "rev": "799ba5bffed04ced7067a91798353d360788b30d",
+      "rev_count": 747653,
+      "rev_date": "2025-02-04T14:46:40Z",
+      "scrape_date": "2025-02-05T00:30:07Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "1.83.0",
+      "outputs_to_install": [
+        "man",
+        "out"
+      ],
+      "outputs": {
+        "doc": "/nix/store/3xszjikd7zs80gnbbndlynkdkdh5z4ld-rustc-wrapper-1.83.0-doc",
+        "man": "/nix/store/bikqq7v08s7d5gm31g90fnr8n2s600wn-rustc-wrapper-1.83.0-man",
+        "out": "/nix/store/7c2sk5bn8vj1qwrgn79sy77hr0g5zhnl-rustc-wrapper-1.83.0"
+      },
+      "system": "aarch64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "rustc",
+      "broken": false,
+      "derivation": "/nix/store/a8mdjzpaywsms53aagyf7r8v8phfc3rh-rustc-wrapper-1.83.0.drv",
+      "description": "Safe, concurrent, practical language (wrapper script)",
+      "install_id": "rustc",
+      "license": "[ MIT, Apache-2.0 ]",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=799ba5bffed04ced7067a91798353d360788b30d",
+      "name": "rustc-wrapper-1.83.0",
+      "pname": "rustc",
+      "rev": "799ba5bffed04ced7067a91798353d360788b30d",
+      "rev_count": 747653,
+      "rev_date": "2025-02-04T14:46:40Z",
+      "scrape_date": "2025-02-05T00:30:07Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "1.83.0",
+      "outputs_to_install": [
+        "man",
+        "out"
+      ],
+      "outputs": {
+        "doc": "/nix/store/ksc5dd88db6wbffaq79yf0y9gjcad3sh-rustc-wrapper-1.83.0-doc",
+        "man": "/nix/store/c8qpa1sw7ia8qa1dw1wf7z1gvymn6v7k-rustc-wrapper-1.83.0-man",
+        "out": "/nix/store/4bg9n0hvbfp1nlkclrjww9jd5jg4bf3h-rustc-wrapper-1.83.0"
+      },
+      "system": "x86_64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "rustc",
+      "broken": false,
+      "derivation": "/nix/store/5gh2zb9ca6116hxlcg95f5jwc18dd9g1-rustc-wrapper-1.83.0.drv",
+      "description": "Safe, concurrent, practical language (wrapper script)",
+      "install_id": "rustc",
+      "license": "[ MIT, Apache-2.0 ]",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=799ba5bffed04ced7067a91798353d360788b30d",
+      "name": "rustc-wrapper-1.83.0",
+      "pname": "rustc",
+      "rev": "799ba5bffed04ced7067a91798353d360788b30d",
+      "rev_count": 747653,
+      "rev_date": "2025-02-04T14:46:40Z",
+      "scrape_date": "2025-02-05T00:30:07Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "1.83.0",
+      "outputs_to_install": [
+        "man",
+        "out"
+      ],
+      "outputs": {
+        "doc": "/nix/store/g4qgyjnc10z61cn5gf5krwmwqrsvr32b-rustc-wrapper-1.83.0-doc",
+        "man": "/nix/store/nni4b5ssd0rvw1xwyzlawfbqbg3r4rd5-rustc-wrapper-1.83.0-man",
+        "out": "/nix/store/0xc2a1l10ggsssh0jrwhwk58xi0kj84i-rustc-wrapper-1.83.0"
+      },
+      "system": "aarch64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "rustc",
+      "broken": false,
+      "derivation": "/nix/store/jm1ljhx7hhd7achyr3j33im8j5xc49y5-rustc-wrapper-1.83.0.drv",
+      "description": "Safe, concurrent, practical language (wrapper script)",
+      "install_id": "rustc",
+      "license": "[ MIT, Apache-2.0 ]",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=799ba5bffed04ced7067a91798353d360788b30d",
+      "name": "rustc-wrapper-1.83.0",
+      "pname": "rustc",
+      "rev": "799ba5bffed04ced7067a91798353d360788b30d",
+      "rev_count": 747653,
+      "rev_date": "2025-02-04T14:46:40Z",
+      "scrape_date": "2025-02-05T00:30:07Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "1.83.0",
+      "outputs_to_install": [
+        "man",
+        "out"
+      ],
+      "outputs": {
+        "doc": "/nix/store/s6h6741lig77473q77jg5a3jh8991a6k-rustc-wrapper-1.83.0-doc",
+        "man": "/nix/store/szr3wmmrcdzf59n1y9x7ry6ncqb93s69-rustc-wrapper-1.83.0-man",
+        "out": "/nix/store/f10frz81pb9j2bxx3vc394cgq0y9dnyd-rustc-wrapper-1.83.0"
+      },
+      "system": "x86_64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "rustfmt",
+      "broken": false,
+      "derivation": "/nix/store/la2pazqrlb5gajx5kxijgbarvm9vgf2d-rustfmt-1.83.0.drv",
+      "description": "Tool for formatting Rust code according to style guidelines",
+      "install_id": "rustfmt",
+      "license": "[ MIT, Apache-2.0 ]",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=799ba5bffed04ced7067a91798353d360788b30d",
+      "name": "rustfmt-1.83.0",
+      "pname": "rustfmt",
+      "rev": "799ba5bffed04ced7067a91798353d360788b30d",
+      "rev_count": 747653,
+      "rev_date": "2025-02-04T14:46:40Z",
+      "scrape_date": "2025-02-05T00:30:07Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "1.83.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/flml6db7rdfb3y57zm63kqpy6g65k9aq-rustfmt-1.83.0"
+      },
+      "system": "aarch64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "rustfmt",
+      "broken": false,
+      "derivation": "/nix/store/nyc43x7hvbj10qk42g6cafiq1hf87ck3-rustfmt-1.83.0.drv",
+      "description": "Tool for formatting Rust code according to style guidelines",
+      "install_id": "rustfmt",
+      "license": "[ MIT, Apache-2.0 ]",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=799ba5bffed04ced7067a91798353d360788b30d",
+      "name": "rustfmt-1.83.0",
+      "pname": "rustfmt",
+      "rev": "799ba5bffed04ced7067a91798353d360788b30d",
+      "rev_count": 747653,
+      "rev_date": "2025-02-04T14:46:40Z",
+      "scrape_date": "2025-02-05T00:30:07Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "1.83.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/sicy5f8fdndangnbx17w2v34ldlrwykf-rustfmt-1.83.0"
+      },
+      "system": "x86_64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "rustfmt",
+      "broken": false,
+      "derivation": "/nix/store/1zk8akkl5qmbah9rn30vli6p6hv5isaz-rustfmt-1.83.0.drv",
+      "description": "Tool for formatting Rust code according to style guidelines",
+      "install_id": "rustfmt",
+      "license": "[ MIT, Apache-2.0 ]",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=799ba5bffed04ced7067a91798353d360788b30d",
+      "name": "rustfmt-1.83.0",
+      "pname": "rustfmt",
+      "rev": "799ba5bffed04ced7067a91798353d360788b30d",
+      "rev_count": 747653,
+      "rev_date": "2025-02-04T14:46:40Z",
+      "scrape_date": "2025-02-05T00:30:07Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "1.83.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/kl5rj9ian2ag6b0rsiwry4bijkha7pcb-rustfmt-1.83.0"
+      },
+      "system": "aarch64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "rustfmt",
+      "broken": false,
+      "derivation": "/nix/store/jl1s2wm925rk06v47614ly3l20rx4by6-rustfmt-1.83.0.drv",
+      "description": "Tool for formatting Rust code according to style guidelines",
+      "install_id": "rustfmt",
+      "license": "[ MIT, Apache-2.0 ]",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=799ba5bffed04ced7067a91798353d360788b30d",
+      "name": "rustfmt-1.83.0",
+      "pname": "rustfmt",
+      "rev": "799ba5bffed04ced7067a91798353d360788b30d",
+      "rev_count": 747653,
+      "rev_date": "2025-02-04T14:46:40Z",
+      "scrape_date": "2025-02-05T00:30:07Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "1.83.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/00h51vwbfcylzx6rl2p8dh6dq3yz9nlv-rustfmt-1.83.0"
+      },
+      "system": "x86_64-linux",
       "group": "toplevel",
       "priority": 5
     }
