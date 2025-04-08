@@ -28,7 +28,7 @@ on-activate = '''
   export PATH="$PWD/target/debug:$PATH"
 '''
 
-[build.ff]
+[build.ffs]
 command = '''
   mkdir -p $out/bin
   cargo build --release
