@@ -2,6 +2,8 @@ use anyhow::Result;
 use clap::{Parser, Subcommand};
 use tracing::debug;
 
+use crate::util::cli_directory;
+
 mod build;
 mod clean;
 mod test;
@@ -23,6 +25,8 @@ pub enum Command {
     #[command(about = "Remove build artifacts")]
     #[command(visible_alias = "c")]
     Clean(CleanArgs),
+    #[command(about = "Prints the path to the flox binary")]
+    Bin(BinArgs),
 }
 
 #[derive(Debug, Clone, clap::Args)]
@@ -69,6 +73,15 @@ pub struct CleanArgs {
     pub artifact: String,
 }
 
+#[derive(Debug, Clone, clap::Args)]
+pub struct BinArgs {
+    #[arg(
+        help = "Which build profile to use (default: debug)",
+        default_value = "debug"
+    )]
+    pub profile: String,
+}
+
 pub fn handle_cmd(cmd: &Command) -> Result<()> {
     match cmd {
         Command::Build(build_args) => {
@@ -82,6 +95,13 @@ pub fn handle_cmd(cmd: &Command) -> Result<()> {
         Command::Clean(clean_args) => {
             debug!("running clean command");
             clean::clean(&clean_args.artifact)
+        }
+        Command::Bin(bin_args) => {
+            debug!("running bin command");
+            let fragment = format!("target/{}/flox", bin_args.profile);
+            let dir = cli_directory()?.join(fragment);
+            println!("{}", dir.display());
+            Ok(())
         }
     }
 }
