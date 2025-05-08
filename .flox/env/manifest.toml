@@ -35,7 +35,7 @@ command = '''
   cp target/release/ff $out/bin/ff
 '''
 description = "A swiss-army knife for working on Flox"
-version = "0.2.0"
+version = "0.2.1"
 
 [profile]
 fish = '''

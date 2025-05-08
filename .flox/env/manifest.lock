@@ -64,7 +64,7 @@
     "build": {
       "ffs": {
         "command": "  mkdir -p $out/bin\n  cargo build --release\n  cp target/release/ff $out/bin/ff\n",
-        "version": "0.2.0",
+        "version": "0.2.1",
         "description": "A swiss-army knife for working on Flox"
       }
     }
