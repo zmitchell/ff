@@ -46,7 +46,7 @@ pub struct TestArgs {
         long,
         help = "Build the specified artifact before running tests"
     )]
-    pub build: bool,
+    pub build: Option<String>,
     #[arg(
         short,
         long,

@@ -8,17 +8,21 @@ use tracing::debug;
 use super::BuildArgs;
 
 pub fn build(args: &BuildArgs) -> Result<()> {
-    match args.artifact.as_str() {
-        "all" => build_all(args.nix),
-        "scripts" => ActivationScripts.build(args.nix),
-        "activations" | "act" => FloxActivations.build(args.nix),
-        "flox" | "cli" => Flox.build(args.nix),
-        "plugins" | "nix-plugins" => NixPlugin.build(args.nix),
-        "buildenv" => Buildenv.build(args.nix),
-        "package-builder" => PackageBuilder.build(args.nix),
-        "watchdog" => Watchdog.build(args.nix),
+    build_component(&args.artifact, args.nix)
+}
+
+pub fn build_component(component: &str, with_nix: bool) -> Result<()> {
+    match component {
+        "all" => build_all(with_nix),
+        "scripts" => ActivationScripts.build(with_nix),
+        "activations" | "act" => FloxActivations.build(with_nix),
+        "flox" | "cli" => Flox.build(with_nix),
+        "plugins" | "nix-plugins" => NixPlugin.build(with_nix),
+        "buildenv" => Buildenv.build(with_nix),
+        "package-builder" => PackageBuilder.build(with_nix),
+        "watchdog" => Watchdog.build(with_nix),
         "nix" => build_nix_components(),
-        _ => anyhow::bail!("unknown artifact: {}", args.artifact),
+        _ => anyhow::bail!("unknown artifact: {}", component),
     }
 }
 

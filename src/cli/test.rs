@@ -1,13 +1,16 @@
-use crate::util::{cargo_workspace_manifest, flox_version};
+use crate::{
+    cli::build::build_component,
+    util::{cargo_workspace_manifest, flox_version},
+};
 
-use super::{build::build_all, TestArgs};
+use super::TestArgs;
 use anyhow::Result;
 use tracing::debug;
 
 pub fn test(args: &TestArgs) -> Result<()> {
-    if args.build {
+    if let Some(ref component) = args.build {
         debug!("doing pre-test build");
-        build_all(args.nix)?;
+        build_component(component, false)?;
     }
     if args.unit.is_none() && args.int.is_none() && args.nix {
         run_unit_tests(args.unit.as_ref())?;
