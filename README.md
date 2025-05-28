@@ -40,9 +40,13 @@ pub fn build(args: &BuildArgs) -> Result<()> {
 The `ff bin` command prints out the absolute path to the `flox` binary in the current repo, which is useful when you want to call it from outside of the devshell or in another terminal tab.
 
 The `ff test` command by default runs the unit tests and then the integration tests.
-You can specify running one or the other via the `ff t -u` or `ff t -i` flags.
+By default tests are run without rebuilding anything in order to keep the feedback cycle short.
+
+You can specify running only unit tests or only integration tests via the `ff t -u` or `ff t -i` flags.
 For the integration tests you can pass arguments to `bats` as long as those arguments don't look like arguments to `ff` (this is slightly broken), so `ff t -i activate.bats` works, but `ff t -i --test-tags foo` doesn't.
 You can also specify that you want the integration tests run with a Nix-built `flox` binary instead of the development build via the `ff t -i -n` flag.
+You can specify that you want a particular component built before running the tests via the `ff t -b <component>` flag.
+For instance, in order to rebuild the activation scripts before running integration tests, you would run `ff t -i -b scripts`.
 
 ## License
 
