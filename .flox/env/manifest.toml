@@ -36,6 +36,7 @@ command = '''
 '''
 description = "A swiss-army knife for working on Flox"
 version = "0.2.1"
+runtime-packages = [ "libiconv" ]
 
 [profile]
 fish = '''
