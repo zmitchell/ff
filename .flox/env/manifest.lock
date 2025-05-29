@@ -67,7 +67,7 @@
         "runtime-packages": [
           "libiconv"
         ],
-        "version": "0.2.1",
+        "version": "0.2.2",
         "description": "A swiss-army knife for working on Flox"
       }
     }
