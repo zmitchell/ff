@@ -47,6 +47,20 @@ pub struct TestArgs {
         help = "Build the specified artifact before running tests"
     )]
     pub build: Option<String>,
+    #[command(flatten)]
+    pub test_type: TestType,
+    #[arg(
+        help = "Additional arguments to pass to bats or cargo-nextest.",
+        value_name = "ARGS",
+        num_args = 0..,
+        last = true
+    )]
+    pub additional_args: Option<Vec<String>>,
+}
+
+#[derive(Debug, Clone, clap::Args)]
+#[group(multiple = false)]
+pub struct TestType {
     #[arg(
         short,
         long,
