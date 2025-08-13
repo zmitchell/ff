@@ -7,6 +7,10 @@ environments = [
   { remote = "zmitchell/rust-test" },
 ]
 
+[install]
+libidn2.pkg-path = "libidn2"
+libidn2.systems = [ "aarch64-linux", "x86_64-linux"]
+
 [vars]
 BIN_NAME = "ff"
 
@@ -18,7 +22,7 @@ command = '''
 '''
 description = "A swiss-army knife for working on Flox"
 version = "0.2.2"
-runtime-packages = [ "libiconv" ]
+runtime-packages = [ "libiconv", "libidn2", "gcc" ]
 
 [options]
 cuda-detection = false
