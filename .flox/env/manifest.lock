@@ -85,7 +85,7 @@
           "libidn2",
           "gcc"
         ],
-        "version": "0.2.2",
+        "version": "0.3.0",
         "description": "A swiss-army knife for working on Flox"
       }
     }
@@ -1424,7 +1424,7 @@
             "libidn2",
             "gcc"
           ],
-          "version": "0.2.2",
+          "version": "0.3.0",
           "description": "A swiss-army knife for working on Flox"
         }
       },

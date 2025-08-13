@@ -21,7 +21,7 @@ command = '''
   cp target/release/ff $out/bin/ff
 '''
 description = "A swiss-army knife for working on Flox"
-version = "0.2.2"
+version = "0.3.0"
 runtime-packages = [ "libiconv", "libidn2", "gcc" ]
 
 [options]
